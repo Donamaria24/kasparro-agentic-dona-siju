@@ -48,10 +48,10 @@ The system enforces several constraints:
 Constraint violations raise explicit errors to prevent silent failures.
 
 5. Orchestration Flow
-1. The FAQ agent generates or falls back to FAQ content
-2. The product agent generates a structured product page
-3. The comparison agent generates competitor comparison data
-4. Outputs are persisted to disk as JSON files
+ The FAQ agent generates or falls back to FAQ content
+ The product agent generates a structured product page
+ The comparison agent generates competitor comparison data
+ Outputs are persisted to disk as JSON files
 
 6. Testing & Validation
 - End-to-end pipeline execution tested locally
