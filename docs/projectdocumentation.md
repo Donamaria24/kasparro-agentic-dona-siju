@@ -1,3 +1,4 @@
+Kasparro Agentic Content Generation System
 1. Objective
 The goal of this project is to design and implement a multi-agent content generation system that can dynamically produce structured product-related content using an agent-based architecture.
 
