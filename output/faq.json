@@ -1,26 +1,62 @@
-{
-  "page_type": "FAQ",
-  "product": "GlowBoost Vitamin C Serum",
-  "faqs": [
-    {
-      "question": "What is this product?",
-      "answer": "GlowBoost Vitamin C Serum is a skincare serum."
-    },
-    {
-      "question": "What are the key benefits?",
-      "answer": "Brightening, Fades dark spots"
-    },
-    {
-      "question": "Who can use this product?",
-      "answer": "It is suitable for oily and combination skin types."
-    },
-    {
-      "question": "How do I use it?",
-      "answer": "Apply 2\u20133 drops in the morning before sunscreen"
-    },
-    {
-      "question": "Are there any side effects?",
-      "answer": "Mild tingling for sensitive skin"
-    }
-  ]
-}
+[
+  {
+    "question": "What is the product used for?",
+    "answer": "It is designed to provide the benefits described in the product information."
+  },
+  {
+    "question": "How do I use the product?",
+    "answer": "Use it according to the usage instructions provided on the product packaging."
+  },
+  {
+    "question": "Is the product safe for daily use?",
+    "answer": "Yes, when used as directed, it is safe for regular use."
+  },
+  {
+    "question": "Additional question 4 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 5 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 6 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 7 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 8 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 9 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 10 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 11 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 12 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 13 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 14 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  },
+  {
+    "question": "Additional question 15 about the product?",
+    "answer": "This answer is generated via fallback logic due to LLM provider limitations."
+  }
+]

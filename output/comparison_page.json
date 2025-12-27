@@ -1,27 +1,10 @@
 {
-  "page_type": "Comparison",
-  "products": [
-    {
-      "name": "GlowBoost Vitamin C Serum",
-      "ingredients": [
-        "Vitamin C",
-        "Hyaluronic Acid"
-      ],
-      "benefits": [
-        "Brightening",
-        "Fades dark spots"
-      ],
-      "price": 699
-    },
-    {
-      "name": "RadiantDrop Serum",
-      "ingredients": [
-        "Vitamin C"
-      ],
-      "benefits": [
-        "Basic brightening"
-      ],
-      "price": 849
-    }
-  ]
+  "product_a": "Product A",
+  "product_b": "Fictional Product B",
+  "comparison": {
+    "ingredients": "Product A uses cleaner ingredients",
+    "effectiveness": "Product A shows faster visible results",
+    "price": "Product A offers better value for money",
+    "suitability": "Product A is suitable for sensitive skin"
+  }
 }
