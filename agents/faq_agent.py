@@ -18,10 +18,15 @@ def faq_agent(state: AgentState) -> AgentState:
         faqs = json.loads(response.content)
 
     except Exception:
-        # Graceful fallback (provider blocked / quota / model unavailable)
-        product_name = state["product"].get("name", "the product")
+        # Graceful fallback
+        product_name = (
+            state.get("product", {}).get("product_name")
+            or state.get("product", {}).get("name")
+            or state.get("product", {}).get("title")
+            or "the product"
+        )
 
-        faqs = [
+        base_faqs = [
             {
                 "question": f"What is {product_name} used for?",
                 "answer": "It is designed to provide the benefits described in the product information."
@@ -33,8 +38,10 @@ def faq_agent(state: AgentState) -> AgentState:
             {
                 "question": f"Is {product_name} safe for daily use?",
                 "answer": "Yes, when used as directed, it is safe for regular use."
-            },
-        ] + [
+            }
+        ]
+
+        extra_faqs = [
             {
                 "question": f"Additional question {i+4} about {product_name}?",
                 "answer": "This answer is generated via fallback logic due to LLM provider limitations."
@@ -42,7 +49,8 @@ def faq_agent(state: AgentState) -> AgentState:
             for i in range(12)
         ]
 
-    # Enforce constraint
+        faqs = base_faqs + extra_faqs
+
     if len(faqs) < 15:
         raise ValueError("FAQ count must be at least 15")
 

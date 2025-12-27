@@ -1,11 +1,20 @@
 {
-  "product_name": "Unknown Product",
+  "product_name": "GlowBoost Vitamin C Serum",
   "description": "This product page was generated using fallback logic due to LLM unavailability.",
-  "benefits": [
-    "Improves skin appearance",
-    "Easy to use",
-    "Suitable for daily use"
+  "concentration": "10% Vitamin C",
+  "skin_type": [
+    "Oily",
+    "Combination"
   ],
-  "usage": "Apply as directed on the product label.",
-  "safety": "For external use only."
+  "key_ingredients": [
+    "Vitamin C",
+    "Hyaluronic Acid"
+  ],
+  "benefits": [
+    "Brightening",
+    "Fades dark spots"
+  ],
+  "how_to_use": "Apply 2\u20133 drops in the morning before sunscreen",
+  "side_effects": "Mild tingling for sensitive skin",
+  "price": 699
 }

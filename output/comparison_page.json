@@ -1,10 +1,10 @@
 {
-  "product_a": "Product A",
-  "product_b": "Fictional Product B",
+  "product_a": "GlowBoost Vitamin C Serum",
+  "product_b": "Fictional Vitamin C Serum",
   "comparison": {
-    "ingredients": "Product A uses cleaner ingredients",
-    "effectiveness": "Product A shows faster visible results",
-    "price": "Product A offers better value for money",
-    "suitability": "Product A is suitable for sensitive skin"
+    "ingredients": "Product A uses cleaner and more effective ingredients.",
+    "effectiveness": "Product A shows faster visible results.",
+    "skin_suitability": "Product A is suitable for oily and combination skin.",
+    "price": "Product A offers better value for money."
   }
 }

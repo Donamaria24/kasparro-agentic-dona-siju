@@ -6,6 +6,7 @@ from data.product_input import PRODUCT_DATA
 import json
 import os
 
+# ✅ Inject product data into LangGraph state
 initial_state = {
     "product": PRODUCT_DATA,
     "faqs": [],
@@ -13,15 +14,19 @@ initial_state = {
     "comparison_page": {}
 }
 
+# Run the LangGraph workflow
 final_state = app.invoke(initial_state)
 
+# Save outputs
 os.makedirs("output", exist_ok=True)
 
-with open("output/faq.json", "w") as f:
+with open("output/faq.json", "w", encoding="utf-8") as f:
     json.dump(final_state["faqs"], f, indent=2)
 
-with open("output/product_page.json", "w") as f:
+with open("output/product_page.json", "w", encoding="utf-8") as f:
     json.dump(final_state["product_page"], f, indent=2)
 
-with open("output/comparison_page.json", "w") as f:
+with open("output/comparison_page.json", "w", encoding="utf-8") as f:
     json.dump(final_state["comparison_page"], f, indent=2)
+
+print("✅ Content generation completed successfully")
