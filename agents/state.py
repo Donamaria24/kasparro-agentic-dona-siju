@@ -1,7 +1,9 @@
-from typing import TypedDict, List, Dict
+from typing import TypedDict, List, Dict, Any
+
 
 class AgentState(TypedDict):
-    product: Dict
-    faqs: List[Dict]
-    product_page: Dict
-    comparison_page: Dict
+    product: Dict[str, Any]
+    faqs: List[Dict[str, Any]]
+    product_page: Dict[str, Any]
+    comparison_page: Dict[str, Any]
+    config: Dict[str, Any]   # ✅ REQUIRED

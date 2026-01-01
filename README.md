@@ -1,89 +1,125 @@
 Kasparro Agentic Content Generation System
-Overview
-This project implements a multi-agent content generation system using LangGraph and LangChain.  
-The system generates structured product-related content such as FAQs, product pages, and product comparisons from a given product input.
-The focus of this project is on agent orchestration, robustness, and clean system design, rather than model complexity.
 
-Key Features
-- Agent-based architecture using LangGraph
-- Shared state management across agents
-- Dynamic JSON content generation
-- Minimum output constraint enforcement (FAQ count ≥ 15)
-- Graceful fallback when LLM providers are unavailable
-- Clean, modular, and maintainable code structure
+This project implements an agentic content generation pipeline using LangGraph and LangChain-style agents to generate structured product content such as:
 
-Architecture
-The system is orchestrated using a LangGraph StateGraph with the following agents:
+- Product Page
+- FAQs (≥15 enforced)
+- Product Comparison Page
 
-1. FAQ Agent
-   - Generates at least 15 FAQs
-   - Enforces output constraints
-   - Includes fallback logic if LLM access fails
+The system is designed to work with an LLM provider (Gemini) and includes deterministic fallback logic to ensure reliability when LLM access is unavailable.
 
-2. Product Agent
-   - Generates a structured product page in JSON format
-   - Uses product input data only
+Architecture Overview
+
+The system uses LangGraph to orchestrate multiple independent agents:
+
+Product Input
+│
+▼
+Product Agent ──▶ Product Page JSON
+│
+▼
+FAQ Agent ──────▶ FAQ JSON (≥15 enforced)
+│
+▼
+Comparison Agent ▶ Comparison Page JSON
+
+Each agent:
+- Receives shared state
+- Performs validation and transformation
+- Uses LLM if available
+- Falls back to deterministic logic if LLM fails
+
+Agents
+
+1. Product Agent
+- Generates a structured product page
+- Validates required fields
+- Guarantees non-empty `product_name`
+- Output: `output/product_page.json`
+
+2. FAQ Agent
+- Generates at least 15 FAQs
+- Uses LLM or deterministic fallback
+- Enforces schema
+- Output: `output/faq.json`
 
 3. Comparison Agent
-   - Generates a comparison between the product and a fictional competitor
-   - Produces structured JSON output
+- Produces structured comparison content
+- Ensures valid JSON output
+- Output: `output/comparison_page.json`
 
-All agents operate on a shared state object.
+LLM Fallback Strategy
 
-Tech Stack
-- Python 3.10+
-- LangGraph
-- LangChain
-- Google Gemini (via LangChain)
-- python-dotenv
-- JSON for structured outputs
+If the LLM fails due to:
+- Missing API key
+- Rate limits
+- Provider errors
+
+The system automatically switches to deterministic logic.
+
+This behavior is:
+- Logged clearly in the terminal
+- Fully documented
+- Intentional and test-covered
+
+⚠️ This ensures reliability without silent failures.
 
 Project Structure
+
 kasparro-agentic-dona-maria-siju/
-│
 ├── agents/
-│ ├── state.py
-│ ├── faq_agent.py
 │ ├── product_agent.py
+│ ├── faq_agent.py
 │ ├── comparison_agent.py
-│ └── graph.py
+│ ├── graph.py
+│ └── state.py
+│
+├── schemas/
+│ ├── product_schema.py
+│ ├── faq_schema.py
+│ └── comparison_schema.py
 │
 ├── data/
 │ └── product_input.py
 │
 ├── output/
-│ ├── faq.json
 │ ├── product_page.json
+│ ├── faq.json
 │ └── comparison_page.json
+│
+├── tests/
+│ ├── test_product_page.py
+│ ├── test_faq.py
+│ └── test_comparison.py
 │
 ├── docs/
 │ └── projectdocumentation.md
 │
 ├── main.py
 ├── requirements.txt
-├── .env
 └── README.md
-Setup Instructions
-1. Install dependencie
+
+Installation
+
+python -m venv venv
+venv\Scripts\activate
 python -m pip install -r requirements.txt
-2. Configure environment variables
-Create a .env file in the project root:
-env
-3. Run the project
-python main.py
-4. View outputs
-Generated JSON files will be available in the output/ directory.
 
-Robustness & Fallback
-The system integrates a real LLM (Google Gemini via LangChain).
-If the LLM is unavailable due to quota limits, model access restrictions, or provider issues, the system automatically falls back to deterministic logic while still enforcing all output constraints.
+Run the System
+python -B main.py
 
-This ensures:
-No pipeline failures
-Predictable outputs
-Production-grade robustness
+Expected output:
+📁 Output written to /output
+✅ Content generation completed successfully
 
-Notes
-.env is intentionally excluded from version control
-Output constraints are strictly enforced
-The system is easily extensible with additional agents or validation layers
+Run Tests
+python -m pytest
+
+All tests must pass:
+Schema validation
+FAQ count enforcement
+Product name validation
+Output existence
+
+Design Tradeoffs
+This system prioritizes reliability over external dependency availability. When LLM access is unavailable, deterministic fallbacks ensure consistent outputs while preserving structural guarantees. Advanced features such as caching, rate limiting, and security hardening were intentionally scoped out to focus on correctness, validation, and agent orchestration.
